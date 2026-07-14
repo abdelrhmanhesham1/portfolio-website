@@ -128,7 +128,7 @@ own API = overkill.)
 - **Icons:** `lucide-react`.
 - **Domain:** **free `*.netlify.app` subdomain, permanently** (v3.2 — zero-cost constraint,
   see §14: Abdelrhman will not pay for anything or enter a card anywhere, ever). Pick a
-  clean, professional slug: `abdelrhman-hesham.netlify.app` (or closest available).
+  clean, professional slug: `abdelrhman-hesham.vercel.app` (or closest available).
   A custom domain remains a documented future upgrade only if he ever chooses to pay ~$10/yr.
 - **Analytics:** host-independent, privacy-friendly script — **Umami Cloud free tier**
   (recommended) or Cloudflare Web Analytics (also free). Netlify's own Analytics is $9/mo —
@@ -439,7 +439,7 @@ on the navy/gradient system — professional, not themed).
 2. Nowarha dashboard screenshots + logo
 3. Jobotic repo URL (if public)
 4. Airline-sentiment code link
-5. Preferred free Netlify slug (default: `abdelrhman-hesham.netlify.app`)
+5. Preferred free Netlify slug (default: `abdelrhman-hesham.vercel.app`)
 6. Secondary project list confirmation + gate-badge label (`GATE` / `REF` / none)
 7. Final availability wording (§6.2)
 
@@ -524,8 +524,8 @@ Abdelrhman and continue other work while waiting.
 | Decision | Rationale | Revisit when |
 |---|---|---|
 | **Zero-cost constraint: every service must be free-tier with NO credit card required, indefinitely** | Abdelrhman's explicit requirement. Verified stack cost = $0: Netlify free (no card), Web3Forms free (no card), Umami Cloud free (no card), Google Fonts, GitHub free. No service that free-trials into billing may be introduced | Never — any future addition must pass the no-card test first |
-| Free `*.netlify.app` subdomain instead of custom domain | Zero-cost constraint above | Only if Abdelrhman ever opts to pay ~$10/yr himself |
-| Netlify hosting (Abdelrhman's choice) over Vercel | Both first-class for this site; Netlify's Next.js adapter serves `next/image` via its Image CDN, so nothing in the architecture changes. Code stays 100% host-agnostic (§2.1 rule) | Only if the adapter breaks a Next.js upgrade — then fall back to static export + build-time image optimizer (§2.1) |
+| Free `*.vercel.app` subdomain instead of custom domain | Zero-cost constraint above | Only if Abdelrhman ever opts to pay ~$10/yr himself |
+| **Hosting moved Netlify → Vercel (2026-07-14)** | `*.netlify.app` is unreachable from Egyptian ISPs (connection timeouts in Abdelrhman's own browser while Netlify status showed all-operational; DNS resolved fine — consistent with regional blocking of bulk-hosting domains). He couldn't demo the site in Cairo and Egypt-based recruiters (EgyptAir) would hit the same wall. `*.vercel.app` is proven reachable from his network (Gate Buddy already runs there) and Vercel Hobby is free with no card. The §2.1 host-agnostic rule made this a URL-string-only change — zero code changes | Only if vercel.app becomes blocked too — then Cloudflare Pages, same playbook |
 | Web3Forms over Netlify Forms | Netlify Forms needs a static-HTML workaround with the modern Next.js adapter and welds the form to the host; Web3Forms works anywhere, 250/mo free | If Web3Forms shuts down or spam exceeds its protections |
 | Single dark theme, no light mode | One theme executed perfectly > two half-tested; dark navy is the brand; AA verified | If analytics show heavy mobile-daylight usage or a recruiter complains |
 | English only | Target companies recruit engineering in English (incl. EgyptAir tech) | Applying to Arabic-first roles |

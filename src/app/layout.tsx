@@ -17,7 +17,7 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
-const SITE_URL = "https://abdelrhman-hesham.netlify.app";
+const SITE_URL = "https://abdelrhman-hesham.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

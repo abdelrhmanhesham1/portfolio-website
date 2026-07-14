@@ -1,6 +1,6 @@
 # Abdelrhman Hesham Galal — Portfolio
 
-**Live: [abdelrhman-hesham.netlify.app](https://abdelrhman-hesham.netlify.app)**
+**Live: [abdelrhman-hesham.vercel.app](https://abdelrhman-hesham.vercel.app)**
 
 Personal portfolio of an AI/ML & Backend Engineer specializing in Aviation
 Information Systems. Featured work includes Gate Buddy (a 40+ endpoint

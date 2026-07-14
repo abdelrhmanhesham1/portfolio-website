@@ -15,7 +15,7 @@ const personJsonLd = {
   jobTitle: "AI/ML & Backend Engineer",
   description:
     "AI/ML and backend engineer specializing in aviation information systems.",
-  url: "https://abdelrhman-hesham.netlify.app",
+  url: "https://abdelrhman-hesham.vercel.app",
   email: `mailto:${profile.email}`,
   telephone: profile.phone,
   address: {
