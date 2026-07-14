@@ -43,12 +43,15 @@ export default function Header() {
         <Link
           href="/"
           className="flex items-center gap-3 font-display font-semibold text-foreground"
-          aria-label="Abdelrhman Hesham Galal — home"
         >
-          <span className="grid size-9 place-items-center rounded-full border border-cyan-400/60 bg-grad-card font-mono text-xs text-cyan-400">
+          <span
+            aria-hidden="true"
+            className="grid size-9 place-items-center rounded-full border border-cyan-400/60 bg-grad-card font-mono text-xs text-cyan-400"
+          >
             AH
           </span>
           <span className="hidden sm:inline">Abdelrhman Hesham Galal</span>
+          <span className="sr-only sm:hidden">Abdelrhman Hesham Galal — home</span>
         </Link>
 
         <nav aria-label="Main" className="hidden items-center gap-8 md:flex">

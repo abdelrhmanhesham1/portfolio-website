@@ -100,15 +100,18 @@ export default function About() {
         </Reveal>
         <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {profile.awards.map((award, i) => (
-            <Reveal key={award.title} delay={0.05 * i}>
-              <li className="bg-grad-card h-full rounded-xl border-l-2 border-amber-500 p-5">
+            <li key={award.title} className="h-full">
+              <Reveal
+                delay={0.05 * i}
+                className="bg-grad-card h-full rounded-xl border-l-2 border-amber-500 p-5"
+              >
                 <p className="font-mono text-xs text-amber-400">{award.year}</p>
                 <p className="mt-2 font-display text-sm font-semibold leading-snug">
                   {award.title}
                 </p>
                 <p className="mt-1 text-xs leading-relaxed text-muted">{award.detail}</p>
-              </li>
-            </Reveal>
+              </Reveal>
+            </li>
           ))}
         </ul>
       </div>

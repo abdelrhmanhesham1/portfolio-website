@@ -25,9 +25,11 @@ export default function Hero() {
           {profile.availability} · {profile.location}
         </p>
 
+        {/* No entrance animation on the h1 — the name is the LCP element and
+            must paint with the first frame (plan §10 budget). */}
         <h1
           id="hero-heading"
-          className="rise-in rise-in-1 mt-6 font-display text-[clamp(2.5rem,6vw,4.25rem)] font-bold leading-tight tracking-tight"
+          className="mt-6 font-display text-[clamp(2.5rem,6vw,4.25rem)] font-bold leading-tight tracking-tight"
         >
           {profile.fullName.split(" ").slice(0, 2).join(" ")}{" "}
           <span className="text-gradient">
