@@ -35,6 +35,7 @@ const profileSchema = z.object({
   stats: z.array(statSchema).min(3).max(6),
   story: z.array(z.string().min(1)).length(3),
   facts: z.array(z.object({ label: z.string().min(1), value: z.string().min(1) })),
+  aviationCoursework: z.array(z.string().min(1)).min(6),
   skills: z.array(
     z.object({ group: z.string().min(1), items: z.array(z.string().min(1)).min(1) })
   ),
@@ -87,6 +88,22 @@ export const profile: Profile = profileSchema.parse({
     { label: "University", value: "Zagazig National University, 2022–2026" },
     { label: "GPA", value: "3.922 / 4.0 — ranked 6th of 108" },
     { label: "Currently", value: "Co-Founder & AI Manager, Nowarha" },
+  ],
+  aviationCoursework: [
+    "Principles of Flight",
+    "Air Law",
+    "Air Navigation",
+    "Aviation Meteorology",
+    "Instrument Systems",
+    "Air Traffic Control Systems",
+    "Radio Navigation",
+    "Aeronautical Information Management Systems",
+    "Flight Planning & Monitoring",
+    "Operational Procedures",
+    "Aerodromes",
+    "Aviation Medicine",
+    "Human Factors in Aviation",
+    "Satellite Navigation",
   ],
   skills: [
     { group: "Languages", items: ["Python", "JavaScript", "TypeScript", "C++", "SQL"] },

@@ -54,7 +54,7 @@ export default function About() {
           </Reveal>
 
           <Reveal delay={0.16}>
-            <div className="space-y-5 text-[17px] leading-relaxed text-muted">
+            <div className="hyphens-auto space-y-5 text-justify text-[17px] leading-relaxed text-muted">
               {profile.story.map((paragraph) => (
                 <p key={paragraph.slice(0, 40)}>
                   <Highlight text={paragraph} className="font-medium text-foreground" />
@@ -63,6 +63,30 @@ export default function About() {
             </div>
           </Reveal>
         </div>
+
+        {/* Aviation coursework — the domain foundation, in the industry's own language */}
+        <Reveal delay={0.08}>
+          <div className="bg-grad-card mt-14 rounded-2xl border border-navy-800 border-t-2 border-t-cyan-500/60 p-6 sm:p-8">
+            <p className="font-mono text-xs uppercase tracking-widest text-cyan-400">
+              Aviation Systems Coursework — ZNU Specialization
+            </p>
+            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted">
+              The aviation half of the degree — the operational language I share with the
+              industry, and the foundation for applying AI to aviation safety, predictive
+              maintenance, and flight optimization:
+            </p>
+            <ul className="mt-5 flex flex-wrap gap-2">
+              {profile.aviationCoursework.map((course) => (
+                <li
+                  key={course}
+                  className="rounded-full border border-cyan-500/30 bg-cyan-500/5 px-3 py-1.5 text-xs text-foreground/85"
+                >
+                  {course}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
 
         {/* Experience timeline */}
         <Reveal delay={0.08}>

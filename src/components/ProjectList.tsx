@@ -143,7 +143,7 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
                       <div className="border-t border-navy-800 p-6">
                         <div className="grid gap-8 lg:grid-cols-[1fr_minmax(200px,240px)]">
                           <div>
-                            <p className="max-w-3xl leading-relaxed text-muted">
+                            <p className="hyphens-auto max-w-3xl text-justify leading-relaxed text-muted">
                               <Highlight text={project.summary} className={accent.highlight} />
                             </p>
 
