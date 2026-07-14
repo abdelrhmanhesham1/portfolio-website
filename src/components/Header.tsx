@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 import { profile } from "@/content/profile";
@@ -40,8 +39,8 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-6">
-        <Link
-          href="/"
+        <a
+          href="#about"
           className="flex items-center gap-3 font-display font-semibold text-foreground"
         >
           <span
@@ -51,8 +50,8 @@ export default function Header() {
             AH
           </span>
           <span className="hidden sm:inline">Abdelrhman Hesham Galal</span>
-          <span className="sr-only sm:hidden">Abdelrhman Hesham Galal — home</span>
-        </Link>
+          <span className="sr-only sm:hidden">Abdelrhman Hesham Galal — about</span>
+        </a>
 
         <nav aria-label="Main" className="hidden items-center gap-8 md:flex">
           {NAV_LINKS.map((link) => (
