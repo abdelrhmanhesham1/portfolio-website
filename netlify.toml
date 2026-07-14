@@ -1,0 +1,10 @@
+# Netlify build config — the official Next.js adapter is auto-detected for
+# Next.js projects and serves next/image through Netlify Image CDN.
+# Application code stays host-agnostic (PORTFOLIO_PLAN.md §2.1).
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
