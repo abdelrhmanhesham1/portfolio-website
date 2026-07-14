@@ -33,20 +33,19 @@ export default function ContactForm() {
   const onSubmit = async (data: ContactInput) => {
     setStatus("sending");
     try {
-      const res = await fetch(WEB3FORMS_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_ACCESS_KEY,
-          subject: `Portfolio contact from ${data.firstName} ${data.lastName}`,
-          name: `${data.firstName} ${data.lastName}`,
-          email: data.email,
-          message: data.message,
-          botcheck: data.botcheck,
-        }),
-      });
-      const json = (await res.json()) as { success: boolean };
-      if (!json.success) throw new Error("submission rejected");
+      // Multipart FormData keeps this a CORS "simple request" — Web3Forms
+      // 403s the OPTIONS preflight that a JSON content-type triggers, which
+      // blocked every browser submission outright. It also answers form-data
+      // posts with an HTML page, not JSON, so success is the HTTP status.
+      const body = new FormData();
+      body.append("access_key", WEB3FORMS_ACCESS_KEY);
+      body.append("subject", `Portfolio contact from ${data.firstName} ${data.lastName}`);
+      body.append("name", `${data.firstName} ${data.lastName}`);
+      body.append("email", data.email);
+      body.append("message", data.message);
+      body.append("botcheck", data.botcheck ?? "");
+      const res = await fetch(WEB3FORMS_ENDPOINT, { method: "POST", body });
+      if (!res.ok) throw new Error("submission rejected");
       setStatus("sent");
       reset();
     } catch {
