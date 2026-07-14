@@ -1,12 +1,16 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { AnimatePresence, m, useReducedMotion } from "motion/react";
 import { ChevronDown } from "lucide-react";
-import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import type { Project } from "@/content/projects";
+
+// Loaded on demand — the lightbox chunk only downloads when a screenshot is
+// first opened, keeping it out of every visitor's initial bundle.
+const Lightbox = dynamic(() => import("yet-another-react-lightbox"), { ssr: false });
 
 const STATUS_STYLES: Record<Project["status"], string> = {
   Live: "bg-green-400",
@@ -185,19 +189,21 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
         })}
       </ul>
 
-      <Lightbox
-        open={lightbox !== null}
-        close={() => setLightbox(null)}
-        index={lightbox?.index ?? 0}
-        slides={
-          lightboxProject?.photos.map((p) => ({
-            src: p.src,
-            width: p.width,
-            height: p.height,
-            alt: p.alt,
-          })) ?? []
-        }
-      />
+      {lightbox !== null && (
+        <Lightbox
+          open
+          close={() => setLightbox(null)}
+          index={lightbox.index}
+          slides={
+            lightboxProject?.photos.map((p) => ({
+              src: p.src,
+              width: p.width,
+              height: p.height,
+              alt: p.alt,
+            })) ?? []
+          }
+        />
+      )}
     </>
   );
 }

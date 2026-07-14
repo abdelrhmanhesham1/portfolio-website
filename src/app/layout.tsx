@@ -24,6 +24,7 @@ export const metadata: Metadata = {
   title: "Abdelrhman Hesham Galal — AI/ML & Backend Engineer · Aviation Information Systems",
   description:
     "AI/ML and backend engineer specializing in aviation information systems. Built Gate Buddy (40+ endpoint airport platform) and DistilBERT airline sentiment research at 93.5% accuracy.",
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     url: SITE_URL,
@@ -31,12 +32,21 @@ export const metadata: Metadata = {
     description:
       "AI/ML and backend engineer specializing in aviation information systems. Gate Buddy, airline sentiment AI, and production backends.",
     siteName: "Abdelrhman Hesham Galal",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Abdelrhman Hesham Galal — AI/ML & Backend Engineer, Aviation Information Systems",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Abdelrhman Hesham Galal — AI/ML & Backend Engineer",
     description:
       "AI/ML and backend engineer specializing in aviation information systems.",
+    images: ["/og.png"],
   },
 };
 
