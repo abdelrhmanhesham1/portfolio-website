@@ -4,20 +4,30 @@ import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 import ContactForm from "@/components/ContactForm";
 import CopyButton from "@/components/CopyButton";
 import Reveal from "@/components/Reveal";
+import SectionHeading from "@/components/SectionHeading";
 
 export default function Contact() {
   return (
-    <section id="contact" aria-labelledby="contact-heading" className="scroll-mt-24 py-24">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <Reveal>
-          <h2 id="contact-heading" className="font-display text-3xl font-bold">
-            Get in touch
-          </h2>
-          <p className="mt-3 max-w-xl text-muted">
-            Open to software & AI engineering roles in aviation technology — based in Cairo,
-            available globally.
-          </p>
-        </Reveal>
+    <section
+      id="contact"
+      aria-labelledby="contact-heading"
+      className="relative scroll-mt-24 overflow-hidden py-24"
+    >
+      {/* Radar sweep atmosphere — decorative, collapses under reduced motion */}
+      <div
+        aria-hidden="true"
+        className="radar-sweep absolute -right-48 top-1/2 size-[40rem] -translate-y-1/2 opacity-70"
+      />
+      <div aria-hidden="true" className="glow-green absolute -left-32 bottom-0 size-[26rem]" />
+
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
+        <SectionHeading
+          index="03"
+          title="Get in touch"
+          headingId="contact-heading"
+          accent="green"
+          intro="Open to software & AI engineering roles in aviation technology — based in Cairo, available globally. Direct lines below, or send a message and I'll reply within 24 hours."
+        />
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(280px,380px)_1fr]">
           <Reveal delay={0.08}>

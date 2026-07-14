@@ -1,8 +1,8 @@
 import { z } from "zod";
 
-// Project manifest (PORTFOLIO_PLAN.md §8). Photos are added as assets are
-// gathered in phase P4 — an empty array renders the card without a gallery,
-// never with a placeholder.
+// Project manifest (PORTFOLIO_PLAN.md §8). Summaries support **highlight**
+// markup rendered as accent-colored spans (see components/Highlight.tsx).
+// Photos are real assets only — an empty array renders without a gallery.
 
 const photoSchema = z.object({
   src: z.string().startsWith("/"),
@@ -58,9 +58,10 @@ export const projects: Project[] = projectsSchema.parse([
     subtitle: "AI-Powered Airport Companion",
     type: "Full-Stack Aviation Platform",
     status: "Live",
-    oneLiner: "40+ endpoint airport platform: flight tracking, boarding-pass parsing, terminal navigation.",
+    oneLiner:
+      "A full airport companion platform — I engineered all 40+ backend endpoints solo while leading the 8-person team.",
     summary:
-      "Led an 8-person team and single-handedly engineered a 40+ endpoint Node.js/Express/MongoDB backend: IATA BCBP boarding-pass parsing, live flight tracking with weather and FCM alerts, geospatial terminal navigation (MongoDB 2dsphere + Dijkstra routing), and a FastAPI recommendation microservice.",
+      "An airport in your pocket. I led an 8-person team and personally engineered the entire backend — **40+ REST endpoints** covering authentication, live flight tracking with weather synchronization, and passenger push alerts. Under the hood: **IATA BCBP boarding-pass parsing**, geospatial terminal wayfinding built on **Dijkstra routing over MongoDB 2dsphere indexes**, and a FastAPI recommendation microservice with automated scraping, ranking, and caching — the same problem space the world's airport-technology teams work in.",
     metric: { value: "40+", label: "REST endpoints, engineered single-handedly" },
     tech: ["Node.js", "Express.js", "MongoDB", "FastAPI", "FCM", "JWT"],
     links: [
@@ -70,9 +71,27 @@ export const projects: Project[] = projectsSchema.parse([
     photos: [
       {
         src: "/projects/gate-buddy/home-desktop.png",
-        alt: "Gate Buddy landing page — Safe & Effortless Travel hero with airport navigation services",
+        alt: "Gate Buddy landing page — Safe & Effortless Travel hero with airport services",
         width: 1440,
         height: 900,
+      },
+      {
+        src: "/projects/gate-buddy/world-hero.png",
+        alt: "Gate Buddy hero slide — Connecting You to the World",
+        width: 1440,
+        height: 900,
+      },
+      {
+        src: "/projects/gate-buddy/login.png",
+        alt: "Gate Buddy login page with social sign-in over an airport tarmac at dusk",
+        width: 1440,
+        height: 900,
+      },
+      {
+        src: "/projects/gate-buddy/about.png",
+        alt: "Gate Buddy About page — smart airport experience, all in one app",
+        width: 1440,
+        height: 640,
       },
       {
         src: "/projects/gate-buddy/home-mobile.png",
@@ -90,9 +109,10 @@ export const projects: Project[] = projectsSchema.parse([
     subtitle: "Transformer Sentiment & Causal Inference",
     type: "AI / NLP Research",
     status: "Shipped",
-    oneLiner: "DistilBERT on 7,277 airline reviews — 93.5% accuracy — plus causal inference on loyalty drivers.",
+    oneLiner:
+      "Transformers + causal inference revealing what actually makes passengers recommend an airline.",
     summary:
-      "Fine-tuned DistilBERT models on 7,277 airline reviews across four service dimensions — 93.5% accuracy and 89.18% Macro-F1 — then applied causal inference methods (PSM, TWFE, causal impact analysis) to quantify which service factors actually drive passenger loyalty and recommendation behavior.",
+      "What actually makes a passenger recommend an airline? I fine-tuned **DistilBERT transformers on 7,277 airline reviews** across four service dimensions — cabin crew, in-flight entertainment, onboard retail, and overall recommendation — reaching **93.5% accuracy and 89.18% Macro-F1**. Then I went past correlation: **propensity-score matching, two-way fixed effects, and causal-impact analysis** quantify which service investments genuinely drive loyalty. The result is the kind of evidence an airline product team can put a budget behind.",
     metric: { value: "93.5%", label: "accuracy · 89.18% Macro-F1" },
     tech: ["PyTorch", "HuggingFace", "DistilBERT", "Causal Inference", "NLP"],
     links: [],
@@ -106,15 +126,23 @@ export const projects: Project[] = projectsSchema.parse([
     subtitle: "Pre-Flight Risk Assessment",
     type: "Desktop App — React + Electron + Gemini",
     status: "Shipped",
-    oneLiner: "Digitized IMSAFE/PAVE/DECIDE frameworks with risk scoring and an AI pilot advisor.",
+    oneLiner:
+      "Turns a pilot's pre-flight gut feeling into a scored, AI-reviewed go/no-go decision.",
     summary:
-      "An aviation decision-support system that digitizes the IMSAFE, PAVE and DECIDE pre-flight frameworks with a cumulative risk-scoring engine, a GRM risk matrix, and an AI advisor that analyzes assessment results to generate personalized go/no-go safety insights for pilots.",
-    metric: { value: "3", label: "certified aviation frameworks digitized" },
+      "Pilots make go/no-go calls under pressure; this desktop app makes those calls systematic. It digitizes the **IMSAFE, PAVE, and DECIDE** aviation frameworks into guided assessments, computes a **cumulative risk score against a GRM risk matrix**, and a **Gemini-powered AI advisor** reads the completed assessment to generate personalized safety insights and mitigations — packaged with React and Electron so it runs offline, anywhere a pilot preps.",
+    metric: { value: "16", label: "guided risk checks across 3 certified frameworks" },
     tech: ["React", "Electron", "Gemini API", "Risk Scoring"],
     links: [
       { label: "Source code", href: "https://github.com/abdelrhmanhesham1/Flight-assessment" },
     ],
-    photos: [],
+    photos: [
+      {
+        src: "/projects/aviation-safety-hub/assessment.png",
+        alt: "Aviation Safety Hub desktop app — IMSAFE, PAVE and DECIDE assessment tabs with live risk score",
+        width: 1196,
+        height: 583,
+      },
+    ],
     featured: true,
   },
   {
@@ -124,16 +152,34 @@ export const projects: Project[] = projectsSchema.parse([
     subtitle: "AI Career Advisor Platform",
     type: "AI Platform — 1st of ~300, CLS/DEPI",
     status: "Shipped",
-    oneLiner: "Recommendation engine + CV extraction that took 1st place among ~300 graduation projects.",
+    oneLiner: "AI job matching that took 1st place among ~300 graduation projects.",
     summary:
-      "Built the recommendation engine and CV extraction module: TF-IDF and cosine similarity for candidate–job matching, a Random Forest classifier for fit scoring, and spaCy with regex for resume parsing — 1st place among roughly 300 DEPI graduation projects.",
+      "A full AI career platform that won **1st place among ~300 projects** at the CLS/DEPI graduation competition. I built its intelligence: a **TF-IDF + cosine-similarity engine** that reads a candidate's CV and ranks every open job by fit, a **Random Forest classifier** scoring the match, and a **spaCy-powered resume parser** that turns any CV into structured data. It's the matching problem LinkedIn solves — built from scratch and validated by judges.",
     metric: { value: "1st", label: "of ~300 projects — CLS/DEPI competition" },
     tech: ["Python", "Scikit-learn", "spaCy", "TF-IDF", "Random Forest"],
     links: [],
     photos: [
       {
+        src: "/projects/jobotic/demo-1.png",
+        alt: "Jobotic job feed showing per-job matching skills computed for the logged-in candidate",
+        width: 1280,
+        height: 630,
+      },
+      {
+        src: "/projects/jobotic/demo-2.png",
+        alt: "Jobotic available jobs with recommendations tab and skill tags",
+        width: 1280,
+        height: 630,
+      },
+      {
+        src: "/projects/jobotic/demo-3.png",
+        alt: "Jobotic branded login screen",
+        width: 1280,
+        height: 630,
+      },
+      {
         src: "/projects/jobotic/main-page.jpeg",
-        alt: "Jobotic main page — AI career advisor with job matching interface",
+        alt: "Jobotic main landing page",
         width: 1600,
         height: 738,
       },
@@ -147,9 +193,9 @@ export const projects: Project[] = projectsSchema.parse([
     subtitle: "Home Electricity Intelligence",
     type: "AI + IoT Startup — Co-Founder",
     status: "In development",
-    oneLiner: "Three-model AI pipeline for load forecasting, bill prediction, and anomaly detection.",
+    oneLiner: "My co-founded startup: making home electricity consumption intelligent.",
     summary:
-      "Co-founded Nowarha and lead its AI development: a three-model pipeline for load forecasting, bill prediction, and energy anomaly detection built on household consumption data. 1st place at Creativa Zagazig University and 3rd at the NextGen Hackathon among 200+ projects.",
+      "The startup I co-founded and where I lead AI: Nowarha turns smart-meter readings into a home's **electricity intelligence**. I designed the **three-model pipeline** — load forecasting, bill prediction, and energy anomaly detection — trained on real household consumption data. The judges keep agreeing it works: **1st place at Creativa Zagazig University** and **3rd of 200+ projects at the NextGen Hackathon**, with an 8-person founding team building toward launch.",
     metric: { value: "1st", label: "Creativa ZU · 3rd of 200+ — NextGen Hackathon" },
     tech: ["Python", "Time-Series ML", "IoT", "Anomaly Detection"],
     links: [
@@ -168,9 +214,10 @@ export const projects: Project[] = projectsSchema.parse([
     subtitle: "Vision, Translation, Music Generation",
     type: "Computer Vision / NLP",
     status: "Shipped",
-    oneLiner: "Real-time YOLOv8 + ByteTrack detection, a 100+ language translator, chatbot, and music gen.",
+    oneLiner:
+      "Real-time object tracking, a 100+ language translator, an FAQ chatbot, and generative music.",
     summary:
-      "A suite of applied AI tasks: real-time object detection and tracking with YOLOv8 + ByteTrack (80 COCO classes with persistent per-object IDs), a Streamlit translation tool covering 100+ languages with a custom slang-expansion preprocessor and gTTS speech, an FAQ chatbot, and music generation.",
+      "Four applied-AI builds shipped in one internship: **real-time object detection and tracking** with YOLOv8 + ByteTrack — persistent per-object IDs across **80 COCO classes** on live video; a **100+ language Streamlit translator** with a custom slang-expansion preprocessor and gTTS speech output; an FAQ chatbot; and generative music experiments. Fast iterations, real demos, all public on GitHub.",
     metric: { value: "80", label: "COCO classes tracked in real time" },
     tech: ["YOLOv8", "ByteTrack", "OpenCV", "Streamlit", "gTTS"],
     links: [
@@ -203,6 +250,91 @@ export const projects: Project[] = projectsSchema.parse([
       },
     ],
     featured: true,
+  },
+
+  // ---- Secondary projects ("More projects" grid) ----
+  {
+    slug: "crop-recommendation",
+    gate: "C1",
+    title: "Crop Recommendation ML",
+    subtitle: "Precision Agriculture Classifier",
+    type: "Machine Learning + Dashboard",
+    status: "Shipped",
+    oneLiner: "Soil and climate data in, optimal crop out — end-to-end ML with a dashboard.",
+    summary:
+      "End-to-end machine learning on agricultural data: cleaned and analyzed **soil and climate features** (correlation studies, outlier treatment before/after), trained a classifier that recommends the **optimal crop for given conditions**, and presented results in a **dashboard** — from raw CSV to a decision a farmer can act on.",
+    metric: { value: "E2E", label: "data cleaning → model → dashboard" },
+    tech: ["Python", "Scikit-learn", "Pandas", "Seaborn"],
+    links: [],
+    photos: [
+      {
+        src: "/projects/crop-recommendation/dashboard.png",
+        alt: "Crop recommendation dashboard with prediction results",
+        width: 844,
+        height: 486,
+      },
+      {
+        src: "/projects/crop-recommendation/model-accuracy.png",
+        alt: "Model accuracy comparison chart",
+        width: 600,
+        height: 511,
+      },
+      {
+        src: "/projects/crop-recommendation/correlation.png",
+        alt: "Feature correlation heatmap of soil and climate variables",
+        width: 599,
+        height: 516,
+      },
+    ],
+    featured: false,
+  },
+  {
+    slug: "festflow",
+    gate: "C2",
+    title: "FestFlow",
+    subtitle: "Event Management REST API",
+    type: "Node.js Backend",
+    status: "Shipped",
+    oneLiner: "Event sessions and services API with an integrated chatbot endpoint.",
+    summary:
+      "A clean **MVC-structured REST API** for event management: full CRUD for **sessions and services** plus an integrated **chatbot endpoint** — built on Node.js, Express, and MongoDB with environment-based configuration and the patterns production backends actually use.",
+    metric: { value: "MVC", label: "controllers · models · routes, cleanly separated" },
+    tech: ["Node.js", "Express.js", "MongoDB", "Mongoose"],
+    links: [],
+    photos: [],
+    featured: false,
+  },
+  {
+    slug: "brolog",
+    gate: "C3",
+    title: "Brolog",
+    subtitle: "Blogging Platform",
+    type: "Full-Stack Web App",
+    status: "Shipped",
+    oneLiner: "Posts, comments, users, and portfolios behind an Express REST API.",
+    summary:
+      "A full-stack blogging platform: **posts, comments, users, and portfolio modules**, each with its own controller/model/route stack behind an Express REST API, with a separate front-end project consuming it — the fundamentals of content platforms, done properly.",
+    metric: { value: "4", label: "domain modules: posts, comments, users, portfolios" },
+    tech: ["Node.js", "Express.js", "REST", "JavaScript"],
+    links: [],
+    photos: [],
+    featured: false,
+  },
+  {
+    slug: "sms-safety-manual",
+    gate: "C4",
+    title: "Airport SMS Manual",
+    subtitle: "Safety Management System Documentation",
+    type: "Aviation Safety Engineering",
+    status: "Shipped",
+    oneLiner: "A complete Safety Management System manual for a model international airport.",
+    summary:
+      "Authored a complete **Safety Management System (SMS) manual** for a model international airport: safety policy statement, **hazard identification and safety risk management**, assurance and promotion chapters — benchmarked against **Singapore Airlines' published SMS documentation**. The regulatory-documentation side of aviation that most engineers never touch.",
+    metric: { value: "11", label: "page ICAO-style SMS manual, signed safety policy" },
+    tech: ["Aviation SMS", "Risk Management", "ICAO Framework"],
+    links: [],
+    photos: [],
+    featured: false,
   },
 ]);
 

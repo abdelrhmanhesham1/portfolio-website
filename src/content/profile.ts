@@ -34,7 +34,7 @@ const profileSchema = z.object({
   }),
   stats: z.array(statSchema).min(3).max(6),
   story: z.array(z.string().min(1)).length(3),
-  facts: z.array(z.string().min(1)),
+  facts: z.array(z.object({ label: z.string().min(1), value: z.string().min(1) })),
   skills: z.array(
     z.object({ group: z.string().min(1), items: z.array(z.string().min(1)).min(1) })
   ),
@@ -78,14 +78,15 @@ export const profile: Profile = profileSchema.parse({
     { value: "93.5%", label: "Model accuracy", countTo: 93.5, decimals: 1, prefix: "", suffix: "%" },
   ],
   story: [
-    "I'm a computer science graduate (June 2026) from Zagazig National University, specialized in Aviation Information Systems — GPA 3.922/4.0, ranked 6th of 108.",
-    "My differentiator is real aviation-industry exposure: internships at the Egyptian Space Agency, EgyptAir, and NANSC (radar systems, CNS/ATM, and the Cairo ATC tower) combined with production engineering — I single-handedly built Gate Buddy's 40+ endpoint backend and fine-tuned DistilBERT models for airline sentiment research at 93.5% accuracy.",
-    "Today I'm co-founder and AI manager at Nowarha, an AI-powered home electricity intelligence startup, after graduating from the DEPI machine learning program with repeated competition wins along the way.",
+    "Most engineers pick a lane. I built mine at the intersection of two: **aviation and artificial intelligence**. Specializing in Aviation Information Systems means I don't just write software that happens to run at airports — I understand the operations behind it, from IATA boarding-pass standards to how a control tower sequences traffic, and I graduated 6th of 108 doing it.",
+    "That understanding comes from the field, not just the classroom. I've stood in **Cairo's air traffic control tower** studying radar and CNS/ATM operations with NANSC, explored satellite subsystems at the **Egyptian Space Agency**, and built internal software at **EgyptAir**. Then I turned domain knowledge into products: leading an 8-person team to ship Gate Buddy while engineering its entire 40+ endpoint backend myself, and fine-tuning transformer models on 7,277 airline reviews to show airlines exactly which service decisions win passenger loyalty.",
+    "Today I co-found and lead AI at **Nowarha**, turning raw household electricity data into forecasts, bill predictions, and anomaly alerts. Everywhere I work I bring the same standard: systems that ship, numbers that survive review — and four competition wins that prove the pattern. What I want next is simple: a team building serious aviation technology, where both halves of my training compound.",
   ],
   facts: [
-    "B.A.Sc. CS — Aviation Information Systems",
-    "ZNU, 2022–2026 — GPA 3.922/4.0, 6th of 108",
-    "Co-Founder & AI Manager, Nowarha",
+    { label: "Degree", value: "B.A.Sc. Computer Science — Aviation Information Systems" },
+    { label: "University", value: "Zagazig National University, 2022–2026" },
+    { label: "GPA", value: "3.922 / 4.0 — ranked 6th of 108" },
+    { label: "Currently", value: "Co-Founder & AI Manager, Nowarha" },
   ],
   skills: [
     { group: "Languages", items: ["Python", "JavaScript", "TypeScript", "C++", "SQL"] },

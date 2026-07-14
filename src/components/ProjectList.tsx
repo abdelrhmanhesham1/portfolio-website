@@ -6,6 +6,7 @@ import Image from "next/image";
 import { AnimatePresence, m, useReducedMotion } from "motion/react";
 import { ChevronDown } from "lucide-react";
 import "yet-another-react-lightbox/styles.css";
+import Highlight from "@/components/Highlight";
 import type { Project } from "@/content/projects";
 
 // Loaded on demand — the lightbox chunk only downloads when a screenshot is
@@ -17,6 +18,35 @@ const STATUS_STYLES: Record<Project["status"], string> = {
   Shipped: "bg-cyan-400",
   "In development": "bg-amber-400",
 };
+
+// Gate groups carry their own accent: A = avionics cyan, B = violet, C = amber
+const GATE_ACCENTS: Record<
+  string,
+  { badge: string; highlight: string; glow: string; link: string }
+> = {
+  A: {
+    badge: "border-cyan-400/50 bg-cyan-500/10 text-cyan-400",
+    highlight: "font-medium text-cyan-400",
+    glow: "hover:shadow-[0_0_32px_rgba(6,182,212,0.14)]",
+    link: "text-cyan-400",
+  },
+  B: {
+    badge: "border-violet-400/50 bg-violet-600/10 text-violet-400",
+    highlight: "font-medium text-violet-400",
+    glow: "hover:shadow-[0_0_32px_rgba(124,58,237,0.16)]",
+    link: "text-violet-400",
+  },
+  C: {
+    badge: "border-amber-400/50 bg-amber-500/10 text-amber-400",
+    highlight: "font-medium text-amber-400",
+    glow: "hover:shadow-[0_0_32px_rgba(255,138,61,0.14)]",
+    link: "text-amber-400",
+  },
+};
+
+export function gateAccent(gate: string) {
+  return GATE_ACCENTS[gate[0]] ?? GATE_ACCENTS.A;
+}
 
 export default function ProjectList({ projects }: { projects: Project[] }) {
   const [expanded, setExpanded] = useState<string | null>(null);
@@ -46,13 +76,14 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
       <ul className="mt-10 space-y-4">
         {projects.map((project) => {
           const isOpen = expanded === project.slug;
+          const accent = gateAccent(project.gate);
           const panelId = `project-panel-${project.slug}`;
           return (
             <li key={project.slug}>
               <m.div
                 layout={!reduceMotion}
-                className={`bg-grad-card overflow-hidden rounded-2xl border transition-colors ${
-                  isOpen ? "border-cyan-400/50" : "border-navy-800 hover:border-navy-800/40 hover:shadow-[0_0_24px_rgba(6,182,212,0.08)]"
+                className={`bg-grad-card overflow-hidden rounded-2xl border transition-all ${accent.glow} ${
+                  isOpen ? "border-cyan-400/50" : "border-navy-800"
                 }`}
               >
                 <button
@@ -66,7 +97,9 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
                   onClick={() => setExpanded(isOpen ? null : project.slug)}
                   className="flex w-full items-center gap-4 p-6 text-left"
                 >
-                  <span className="shrink-0 rounded border border-cyan-400/40 px-2 py-1 font-mono text-xs text-cyan-400">
+                  <span
+                    className={`shrink-0 rounded border px-2 py-1 font-mono text-xs ${accent.badge}`}
+                  >
                     {project.gate}
                   </span>
                   <span className="min-w-0 flex-1">
@@ -111,7 +144,7 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
                         <div className="grid gap-8 lg:grid-cols-[1fr_minmax(200px,240px)]">
                           <div>
                             <p className="max-w-3xl leading-relaxed text-muted">
-                              {project.summary}
+                              <Highlight text={project.summary} className={accent.highlight} />
                             </p>
 
                             <ul className="mt-5 flex flex-wrap gap-2">
@@ -132,7 +165,7 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
                                   href={link.href}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="font-semibold text-cyan-400 underline-offset-4 hover:underline"
+                                  className={`font-semibold underline-offset-4 hover:underline ${accent.link}`}
                                 >
                                   {link.label} ↗
                                 </a>
@@ -147,7 +180,7 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
                           </div>
 
                           <div className="rounded-xl border border-navy-800 bg-navy-950/50 p-5 text-center lg:self-start">
-                            <p className="font-mono text-4xl font-bold text-gradient">
+                            <p className="text-gradient font-mono text-4xl font-bold">
                               {project.metric.value}
                             </p>
                             <p className="mt-2 text-xs leading-relaxed text-muted">
@@ -163,7 +196,7 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
                                 <button
                                   type="button"
                                   onClick={() => setLightbox({ slug: project.slug, index })}
-                                  className="block overflow-hidden rounded-lg border border-navy-800 transition-transform hover:scale-[1.02]"
+                                  className="block overflow-hidden rounded-lg border border-navy-800 transition-all hover:scale-[1.03] hover:border-cyan-400/50"
                                   aria-label={`Open screenshot: ${photo.alt}`}
                                 >
                                   <Image

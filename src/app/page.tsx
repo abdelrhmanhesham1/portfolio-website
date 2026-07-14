@@ -1,6 +1,8 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MotionProvider from "@/components/MotionProvider";
+import BackToTop from "@/components/BackToTop";
+import FlightPath from "@/components/FlightPath";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Work from "@/components/sections/Work";
@@ -45,6 +47,7 @@ export default function Home() {
       />
       <div id="top">
         <Header />
+        <FlightPath />
 
         <main>
           <Hero />
@@ -54,6 +57,7 @@ export default function Home() {
         </main>
 
         <Footer />
+        <BackToTop />
       </div>
     </MotionProvider>
   );
