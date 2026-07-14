@@ -112,6 +112,29 @@ body {
   background: radial-gradient(closest-side, rgba(6, 182, 212, 0.1), transparent);
 }
 
+/* Hero entrance — pure CSS so it runs before (and without) JavaScript.
+   The global reduced-motion block below collapses it automatically. */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise-in {
+  animation: rise-in 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.rise-in-1 { animation-delay: 0.08s; }
+.rise-in-2 { animation-delay: 0.16s; }
+.rise-in-3 { animation-delay: 0.24s; }
+.rise-in-4 { animation-delay: 0.32s; }
+.rise-in-5 { animation-delay: 0.4s; }
+
 /* CSS-level fallback: collapse all motion when the user asks (plan §5.5).
    Components also branch on useReducedMotion; this catches anything CSS-driven. */
 @media (prefers-reduced-motion: reduce) {

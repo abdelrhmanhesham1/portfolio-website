@@ -67,7 +67,20 @@ export const projects: Project[] = projectsSchema.parse([
       { label: "Live demo", href: "https://gate-buddy-frontend.vercel.app/" },
       { label: "Source code", href: "https://github.com/abdelrhmanhesham1/gate-buddy-backend" },
     ],
-    photos: [],
+    photos: [
+      {
+        src: "/projects/gate-buddy/home-desktop.png",
+        alt: "Gate Buddy landing page — Safe & Effortless Travel hero with airport navigation services",
+        width: 1440,
+        height: 900,
+      },
+      {
+        src: "/projects/gate-buddy/home-mobile.png",
+        alt: "Gate Buddy landing page on a mobile viewport",
+        width: 414,
+        height: 896,
+      },
+    ],
     featured: true,
   },
   {
@@ -117,7 +130,14 @@ export const projects: Project[] = projectsSchema.parse([
     metric: { value: "1st", label: "of ~300 projects — CLS/DEPI competition" },
     tech: ["Python", "Scikit-learn", "spaCy", "TF-IDF", "Random Forest"],
     links: [],
-    photos: [],
+    photos: [
+      {
+        src: "/projects/jobotic/main-page.jpeg",
+        alt: "Jobotic main page — AI career advisor with job matching interface",
+        width: 1600,
+        height: 738,
+      },
+    ],
     featured: true,
   },
   {
@@ -156,7 +176,32 @@ export const projects: Project[] = projectsSchema.parse([
     links: [
       { label: "Source code", href: "https://github.com/abdelrhmanhesham1/codealpha_tasks" },
     ],
-    photos: [],
+    photos: [
+      {
+        src: "/projects/codealpha-ai-suite/translator-1.png",
+        alt: "Streamlit translation tool interface supporting 100+ languages",
+        width: 1177,
+        height: 554,
+      },
+      {
+        src: "/projects/codealpha-ai-suite/translator-2.png",
+        alt: "Translation tool output with slang expansion and text-to-speech",
+        width: 1121,
+        height: 499,
+      },
+      {
+        src: "/projects/codealpha-ai-suite/chatbot-1.png",
+        alt: "FAQ chatbot interface answering a user question",
+        width: 1261,
+        height: 567,
+      },
+      {
+        src: "/projects/codealpha-ai-suite/chatbot-2.png",
+        alt: "FAQ chatbot conversation view with matched answers",
+        width: 1265,
+        height: 567,
+      },
+    ],
     featured: true,
   },
 ]);
