@@ -13,11 +13,16 @@ export default function Contact() {
       aria-labelledby="contact-heading"
       className="relative scroll-mt-24 overflow-hidden py-24"
     >
-      {/* Radar sweep atmosphere — decorative, collapses under reduced motion */}
+      {/* ATC radar scope atmosphere — static range rings + crosshair with a
+          rotating sweep beam, like a control-tower PPI display. Decorative,
+          collapses under reduced motion. */}
       <div
         aria-hidden="true"
-        className="radar-sweep absolute -right-48 top-1/2 size-[40rem] -translate-y-1/2 opacity-70"
-      />
+        className="radar-scope absolute -right-48 top-1/2 size-[40rem] -translate-y-1/2 opacity-70"
+      >
+        <div className="radar-rings absolute inset-0 rounded-full" />
+        <div className="radar-sweep absolute inset-0 rounded-full" />
+      </div>
       <div aria-hidden="true" className="glow-green absolute -left-32 bottom-0 size-[26rem]" />
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">

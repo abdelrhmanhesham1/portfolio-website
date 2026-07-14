@@ -106,13 +106,33 @@ body {
   animation: gradient-pan 7s linear infinite;
 }
 
-/* Radar sweep — contact section atmosphere (collapses under reduced motion) */
+/* ATC radar scope — contact section atmosphere (collapses under reduced motion).
+   Static range rings + crosshair (a PPI display never rotates these) with a
+   rotating sweep beam layered on top — reads as an air-traffic-control scope
+   rather than an ambiguous ship-sonar circle. */
 @keyframes radar-spin {
   to { transform: rotate(360deg); }
 }
 
+.radar-scope {
+  position: relative;
+}
+
+.radar-rings {
+  border: 1px solid rgba(52, 211, 153, 0.16);
+  background:
+    repeating-radial-gradient(
+      circle at center,
+      rgba(52, 211, 153, 0.12) 0,
+      rgba(52, 211, 153, 0.12) 1px,
+      transparent 1px,
+      transparent 16.6%
+    ),
+    linear-gradient(rgba(52, 211, 153, 0.14) 1px, transparent 1px) center / 1px 100% no-repeat,
+    linear-gradient(90deg, rgba(52, 211, 153, 0.14) 1px, transparent 1px) center / 100% 1px no-repeat;
+}
+
 .radar-sweep {
-  border-radius: 50%;
   background: conic-gradient(
     from 0deg,
     rgba(52, 211, 153, 0) 0%,

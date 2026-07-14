@@ -1,7 +1,13 @@
 import { z } from "zod";
+import { projects } from "./projects";
+import { experience } from "./experience";
 
 // Single source of truth for personal facts (PORTFOLIO_PLAN.md §3).
 // Mirrors cv/build_cv.py — update both together.
+
+// Derived counts so the hero stats never drift from the underlying content.
+const totalProjects = projects.length;
+const professionalRoles = experience.length - 1; // excludes the degree entry
 
 const linkSchema = z.object({
   label: z.string().min(1),
@@ -75,8 +81,22 @@ export const profile: Profile = profileSchema.parse({
     { value: "3.922/4.0", label: "GPA", countTo: 3.922, decimals: 3, prefix: "", suffix: "/4.0" },
     { value: "6th of 108", label: "Class rank", countTo: null, decimals: 0, prefix: "", suffix: "" },
     { value: "4×", label: "Competition wins", countTo: 4, decimals: 0, prefix: "", suffix: "×" },
-    { value: "40+", label: "API endpoints shipped", countTo: 40, decimals: 0, prefix: "", suffix: "+" },
-    { value: "93.5%", label: "Model accuracy", countTo: 93.5, decimals: 1, prefix: "", suffix: "%" },
+    {
+      value: `${totalProjects}`,
+      label: "Projects shipped",
+      countTo: totalProjects,
+      decimals: 0,
+      prefix: "",
+      suffix: "",
+    },
+    {
+      value: `${professionalRoles}`,
+      label: "Internships & leadership roles",
+      countTo: professionalRoles,
+      decimals: 0,
+      prefix: "",
+      suffix: "",
+    },
   ],
   story: [
     "Most engineers pick a lane. I built mine at the intersection of two: **aviation and artificial intelligence**. Specializing in Aviation Information Systems means I don't just write software that happens to run at airports — I understand the operations behind it, from IATA boarding-pass standards to how a control tower sequences traffic, and I graduated 6th of 108 doing it.",

@@ -29,7 +29,9 @@ export default function SectionHeading({
         {title}
       </h2>
       <div className="heading-bar mt-4" aria-hidden="true" />
-      {intro && <p className="mt-5 max-w-2xl leading-relaxed text-muted">{intro}</p>}
+      {intro && (
+        <p className="mt-5 max-w-2xl text-justify leading-relaxed text-muted">{intro}</p>
+      )}
     </Reveal>
   );
 }

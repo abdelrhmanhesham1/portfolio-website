@@ -157,10 +157,14 @@ export default function ContactForm() {
         )}
       </div>
 
-      {/* Honeypot */}
+      {/* Honeypot — a real bot fills every input it can see in the DOM; a human
+          never does, since it's visually hidden. Must be type="text": RHF
+          reports checkbox inputs as booleans, which failed the string schema
+          below and silently blocked every submission. */}
       <input
-        type="checkbox"
+        type="text"
         tabIndex={-1}
+        autoComplete="off"
         aria-hidden="true"
         className="hidden"
         {...register("botcheck")}

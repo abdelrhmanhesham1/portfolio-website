@@ -62,7 +62,7 @@ export const projects: Project[] = projectsSchema.parse([
       "A full airport companion platform — I engineered all 40+ backend endpoints solo while leading the 8-person team.",
     summary:
       "An airport in your pocket. I led an 8-person team and personally engineered the entire backend — **40+ REST endpoints** covering authentication, live flight tracking with weather synchronization, and passenger push alerts. Under the hood: **IATA BCBP boarding-pass parsing**, geospatial terminal wayfinding built on **Dijkstra routing over MongoDB 2dsphere indexes**, and a FastAPI recommendation microservice with automated scraping, ranking, and caching — the same problem space the world's airport-technology teams work in.",
-    metric: { value: "40+", label: "REST endpoints, engineered single-handedly" },
+    metric: { value: "40+", label: "REST endpoints — solo-built backend" },
     tech: ["Node.js", "Express.js", "MongoDB", "FastAPI", "FCM", "JWT"],
     links: [
       { label: "Live demo", href: "https://gate-buddy-frontend.vercel.app/" },
@@ -130,7 +130,7 @@ export const projects: Project[] = projectsSchema.parse([
       "Turns a pilot's pre-flight gut feeling into a scored, AI-reviewed go/no-go decision.",
     summary:
       "Pilots make go/no-go calls under pressure; this desktop app makes those calls systematic. It digitizes the **IMSAFE, PAVE, and DECIDE** aviation frameworks into guided assessments, computes a **cumulative risk score against a GRM risk matrix**, and a **Gemini-powered AI advisor** reads the completed assessment to generate personalized safety insights and mitigations — packaged with React and Electron so it runs offline, anywhere a pilot preps.",
-    metric: { value: "16", label: "guided risk checks across 3 certified frameworks" },
+    metric: { value: "3", label: "certified risk frameworks — IMSAFE · PAVE · DECIDE" },
     tech: ["React", "Electron", "Gemini API", "Risk Scoring"],
     links: [
       { label: "Source code", href: "https://github.com/abdelrhmanhesham1/Flight-assessment" },

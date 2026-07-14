@@ -27,7 +27,7 @@ export default function Work() {
           <h3 className="mt-20 font-display text-2xl font-semibold">
             More projects <span aria-hidden="true" className="text-gradient">/</span>
           </h3>
-          <p className="mt-2 text-sm text-muted">
+          <p className="mt-2 text-justify text-sm text-muted">
             Smaller builds that round out the picture — data science, backends, and aviation
             safety documentation.
           </p>

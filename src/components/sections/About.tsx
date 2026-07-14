@@ -70,16 +70,16 @@ export default function About() {
             <p className="font-mono text-xs uppercase tracking-widest text-cyan-400">
               Aviation Systems Coursework — ZNU Specialization
             </p>
-            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted">
+            <p className="mt-3 max-w-3xl text-justify text-sm leading-relaxed text-muted">
               The aviation half of the degree — the operational language I share with the
               industry, and the foundation for applying AI to aviation safety, predictive
               maintenance, and flight optimization:
             </p>
-            <ul className="mt-5 flex flex-wrap gap-2">
+            <ul className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
               {profile.aviationCoursework.map((course) => (
                 <li
                   key={course}
-                  className="rounded-full border border-cyan-500/30 bg-cyan-500/5 px-3 py-1.5 text-xs text-foreground/85"
+                  className="rounded-full border border-cyan-500/30 bg-cyan-500/5 px-3 py-1.5 text-center text-xs text-foreground/85"
                 >
                   {course}
                 </li>
@@ -97,11 +97,13 @@ export default function About() {
         <ol className="mt-8 border-l border-navy-800 pl-0">
           {experience.map((entry, i) => (
             <li key={entry.period + entry.org} className="relative pb-10 pl-8 last:pb-0">
+              {/* Pinned to the static timeline rule outside the Reveal transform —
+                  animating it alongside the text made it visibly slide off the line. */}
+              <span
+                aria-hidden="true"
+                className={`absolute -left-[5px] top-1.5 size-2.5 rounded-full border ${NODE_ACCENTS[i % NODE_ACCENTS.length]} bg-navy-950`}
+              />
               <Reveal delay={0.05 * i}>
-                <span
-                  aria-hidden="true"
-                  className={`absolute -left-[5px] top-1.5 size-2.5 rounded-full border ${NODE_ACCENTS[i % NODE_ACCENTS.length]} bg-navy-950`}
-                />
                 <p className={`font-mono text-xs ${SKILL_ACCENTS[i % SKILL_ACCENTS.length].heading}`}>
                   {entry.period}
                 </p>
@@ -109,7 +111,9 @@ export default function About() {
                   {entry.title}{" "}
                   <span className="font-sans text-sm font-normal text-muted">· {entry.org}</span>
                 </p>
-                <p className="mt-1 max-w-2xl text-sm leading-relaxed text-muted">{entry.detail}</p>
+                <p className="mt-1 max-w-2xl text-justify text-sm leading-relaxed text-muted">
+                  {entry.detail}
+                </p>
               </Reveal>
             </li>
           ))}
@@ -165,7 +169,9 @@ export default function About() {
                 <p className="mt-2 font-display text-sm font-semibold leading-snug">
                   {award.title}
                 </p>
-                <p className="mt-1 text-xs leading-relaxed text-muted">{award.detail}</p>
+                <p className="mt-1 text-justify text-xs leading-relaxed text-muted">
+                  {award.detail}
+                </p>
               </Reveal>
             </li>
           ))}

@@ -31,10 +31,11 @@ export default function Header() {
   }, [menuOpen]);
 
   return (
+    <>
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-navy-900/70 backdrop-blur-md border-b border-navy-800 py-3"
+        scrolled || menuOpen
+          ? "bg-navy-900/95 backdrop-blur-md border-b border-navy-800 py-3"
           : "bg-transparent py-5"
       }`}
     >
@@ -107,48 +108,54 @@ export default function Header() {
           )}
         </button>
       </div>
-
-      {menuOpen && (
-        <div className="fixed inset-0 top-[57px] z-40 flex flex-col gap-2 bg-navy-950/95 p-6 backdrop-blur-md md:hidden">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setMenuOpen(false)}
-              className="rounded-lg px-4 py-4 font-display text-2xl font-semibold text-foreground hover:bg-navy-900"
-            >
-              {link.label}
-            </a>
-          ))}
-          <div className="mt-4 flex items-center gap-4 px-4">
-            <a
-              href={profile.links.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub profile"
-              className="p-2 text-muted"
-            >
-              <GitHubIcon className="size-6" />
-            </a>
-            <a
-              href={profile.links.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn profile"
-              className="p-2 text-muted"
-            >
-              <LinkedInIcon className="size-6" />
-            </a>
-            <a
-              href={profile.links.cv}
-              download
-              className="bg-grad-cta rounded-full px-5 py-3 text-sm font-semibold text-navy-950"
-            >
-              Download CV
-            </a>
-          </div>
-        </div>
-      )}
     </header>
+
+    {/* Rendered as a sibling of <header>, not a child: the header's
+        backdrop-blur gives it a backdrop-filter, which establishes a
+        containing block for `position: fixed` descendants in Chromium —
+        nesting this panel inside header collapsed it to the header's own
+        (small) box instead of the full viewport. */}
+    {menuOpen && (
+      <div className="fixed inset-0 z-40 flex flex-col gap-2 overflow-y-auto bg-navy-950/95 p-6 pt-24 backdrop-blur-md md:hidden">
+        {NAV_LINKS.map((link) => (
+          <a
+            key={link.href}
+            href={link.href}
+            onClick={() => setMenuOpen(false)}
+            className="rounded-lg px-4 py-4 font-display text-2xl font-semibold text-foreground hover:bg-navy-900"
+          >
+            {link.label}
+          </a>
+        ))}
+        <div className="mt-4 flex items-center gap-4 px-4">
+          <a
+            href={profile.links.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub profile"
+            className="p-2 text-muted"
+          >
+            <GitHubIcon className="size-6" />
+          </a>
+          <a
+            href={profile.links.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn profile"
+            className="p-2 text-muted"
+          >
+            <LinkedInIcon className="size-6" />
+          </a>
+          <a
+            href={profile.links.cv}
+            download
+            className="bg-grad-cta rounded-full px-5 py-3 text-sm font-semibold text-navy-950"
+          >
+            Download CV
+          </a>
+        </div>
+      </div>
+    )}
+    </>
   );
 }
