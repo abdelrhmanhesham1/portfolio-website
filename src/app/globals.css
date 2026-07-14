@@ -114,10 +114,6 @@ body {
   to { transform: rotate(360deg); }
 }
 
-.radar-scope {
-  position: relative;
-}
-
 .radar-rings {
   border: 1px solid rgba(52, 211, 153, 0.16);
   background:
