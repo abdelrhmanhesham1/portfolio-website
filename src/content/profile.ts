@@ -63,8 +63,13 @@ export const profile: Profile = profileSchema.parse({
   role: "AI/ML & Backend Engineer — Aviation Information Systems",
   rotatingSpecialties: [
     "Aviation Information Systems",
+    "REST API Design",
     "Machine Learning & NLP",
-    "Backend Engineering",
+    "Aviation Information Systems",
+    "Node.js Development",
+    "AI Researcher",
+
+
   ],
   tagline:
     "I build production AI and backend systems for the aviation industry — from airport passenger platforms to airline sentiment intelligence.",
@@ -82,12 +87,12 @@ export const profile: Profile = profileSchema.parse({
     { value: "6th of 108", label: "Class rank", countTo: null, decimals: 0, prefix: "", suffix: "" },
     { value: "4×", label: "Competition wins", countTo: 4, decimals: 0, prefix: "", suffix: "×" },
     {
-      value: `${totalProjects}`,
+      value: `27+`,
       label: "Projects shipped",
-      countTo: totalProjects,
+      countTo: 27,
       decimals: 0,
       prefix: "",
-      suffix: "",
+      suffix: "+",
     },
     {
       value: `${professionalRoles}`,
