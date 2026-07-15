@@ -137,10 +137,40 @@ export const projects: Project[] = projectsSchema.parse([
     ],
     photos: [
       {
+        src: "/projects/aviation-safety-hub/dashboard.png",
+        alt: "Aviation Safety Hub dashboard — IMSAFE, PAVE and DECIDE checklists with a live cumulative risk score and mitigation status",
+        width: 1024,
+        height: 512,
+      },
+      {
         src: "/projects/aviation-safety-hub/assessment.png",
         alt: "Aviation Safety Hub desktop app — IMSAFE, PAVE and DECIDE assessment tabs with live risk score",
         width: 1196,
         height: 583,
+      },
+      {
+        src: "/projects/aviation-safety-hub/matrix.png",
+        alt: "GRM risk matrix — severity by likelihood grid with the cumulative risk score scale from GO to NO-GO",
+        width: 811,
+        height: 583,
+      },
+      {
+        src: "/projects/aviation-safety-hub/analyzing.png",
+        alt: "AI Pilot Advisor modal analyzing flight data and mitigation strategies, powered by Gemini",
+        width: 877,
+        height: 539,
+      },
+      {
+        src: "/projects/aviation-safety-hub/report.png",
+        alt: "AI advisor safety analysis — executive summary and per-factor risk breakdown with translation support",
+        width: 861,
+        height: 588,
+      },
+      {
+        src: "/projects/aviation-safety-hub/log.png",
+        alt: "Printable pre-flight risk certificate with cumulative risk score, verdict, and the AI advisor's full analysis",
+        width: 801,
+        height: 549,
       },
     ],
     featured: true,
