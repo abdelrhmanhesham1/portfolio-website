@@ -70,16 +70,14 @@ export default function About() {
             <p className="font-mono text-xs uppercase tracking-widest text-cyan-400">
               Aviation Systems Coursework — ZNU Specialization
             </p>
-            <p className="mt-3 max-w-3xl text-justify text-sm leading-relaxed text-muted">
-              The aviation half of the degree — the operational language I share with the
-              industry, and the foundation for applying AI to aviation safety, predictive
-              maintenance, and flight optimization:
+            <p className="mt-3 max-w-5xl text-justify text-sm leading-6 text-muted-foreground">
+              The aviation side of my degree gave me more than technical knowledge—it gave me the operational language of the industry and the foundation to build AI systems for aviation safety, predictive maintenance, and flight optimization:
             </p>
             <ul className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
               {profile.aviationCoursework.map((course) => (
                 <li
                   key={course}
-                  className="rounded-full border border-cyan-500/30 bg-cyan-500/5 px-3 py-1.5 text-center text-xs text-foreground/85"
+                  className="flex items-center justify-center rounded-full border border-cyan-500/30 bg-cyan-500/5 px-5 py-2 text-center text-xs text-foreground/85"
                 >
                   {course}
                 </li>
@@ -96,7 +94,7 @@ export default function About() {
         </Reveal>
         <ol className="mt-8 border-l border-navy-800 pl-0">
           {experience.map((entry, i) => (
-            <li key={entry.period + entry.org} className="relative pb-10 pl-8 last:pb-0">
+            <li key={entry.period + entry.title + entry.org} className="relative pb-10 pl-8 last:pb-0">
               {/* Pinned to the static timeline rule outside the Reveal transform —
                   animating it alongside the text made it visibly slide off the line. */}
               <span
@@ -112,7 +110,7 @@ export default function About() {
                   <span className="font-sans text-sm font-normal text-muted">· {entry.org}</span>
                 </p>
                 <p className="mt-1 max-w-2xl text-justify text-sm leading-relaxed text-muted">
-                  {entry.detail}
+                  <Highlight text={entry.detail} className="font-semibold text-foreground" />
                 </p>
               </Reveal>
             </li>

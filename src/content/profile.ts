@@ -72,7 +72,7 @@ export const profile: Profile = profileSchema.parse({
 
   ],
   tagline:
-    "I build production AI and backend systems for the aviation industry — from airport passenger platforms to airline sentiment intelligence.",
+    "I build production AI and backend systems—from intelligent APIs to aviation information platforms.",
   location: "Cairo, Egypt (UTC+2)",
   availability: "Open to full-time roles",
   phone: "+20 1000107202",
@@ -104,8 +104,8 @@ export const profile: Profile = profileSchema.parse({
     },
   ],
   story: [
-    "Most engineers pick a lane. I built mine at the intersection of two: **aviation and artificial intelligence**. Specializing in Aviation Information Systems means I don't just write software that happens to run at airports — I understand the operations behind it, from IATA boarding-pass standards to how a control tower sequences traffic, and I graduated 6th of 108 doing it.",
-    "That understanding comes from the field, not just the classroom. I've stood in **Cairo's air traffic control tower** studying radar and CNS/ATM operations with NANSC, explored satellite subsystems at the **Egyptian Space Agency**, and built internal software at **EgyptAir**. Then I turned domain knowledge into products: leading an 8-person team to ship Gate Buddy while engineering its entire 40+ endpoint backend myself, and fine-tuning transformer models on 7,277 airline reviews to show airlines exactly which service decisions win passenger loyalty.",
+    "Most engineers pick a lane. I built mine at the intersection of two: **aviation and artificial intelligence**. Through my specialization in Aviation Information Systems, I combine software engineering with a deep understanding of airport operations, air navigation, CNS/ATM, and aviation standards—from IATA Bar Coded Boarding Pass (BCBP) standards to the CNS/ATM technologies that keep aircraft moving safely — and I graduated 6th of 108 doing it.",
+    "That foundation extends beyond the classroom. I studied radar and CNS/ATM operations at the **National Air Navigation Services Company (NANSC)**, including an on-site visit to Cairo's Air Traffic Control (ATC) Tower to observe air traffic management operations firsthand. At the **Egyptian Space Agency (EGSA)**, I worked as part of a team developing a CubeSat, gaining practical experience with satellite subsystems and space technologies. I also gained firsthand exposure to airline operations at **EgyptAir**. I later led an 8-person team developing Gate Buddy, engineering its 40+ endpoint backend. Separately, I conducted transformer-based NLP research on 7,277 airline reviews, using DistilBERT and causal inference to identify the service factors that drive passenger loyalty.",
     "Today I co-found and lead AI at **Nowarha**, turning raw household electricity data into forecasts, bill predictions, and anomaly alerts. Everywhere I work I bring the same standard: systems that ship, numbers that survive review — and four competition wins that prove the pattern. What I want next is simple: a team building serious aviation technology, where both halves of my training compound.",
   ],
   facts: [
@@ -147,8 +147,18 @@ export const profile: Profile = profileSchema.parse({
       group: "Backend",
       items: ["Node.js", "Express.js", "MongoDB", "Mongoose", "REST APIs", "JWT / OAuth"],
     },
-    { group: "Data", items: ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Plotly"] },
-    { group: "Tools", items: ["Git", "Postman", "React", "Next.js"] },
+    {
+      group: "Database",
+      items: [
+       "MongoDB",
+       "PostgreSQL",
+       "Mongoose",
+       "Redis",
+       "MySQL",
+      ],
+    },
+    { group: "Data Science", items: ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Plotly"] },
+    { group: "Tools & Frameworks", items: ["React", "Next.js", "Git", "Postman"] },
   ],
   awards: [
     {

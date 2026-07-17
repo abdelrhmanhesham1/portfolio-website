@@ -31,7 +31,7 @@ export default function Contact() {
           title="Get in touch"
           headingId="contact-heading"
           accent="green"
-          intro="Open to software & AI engineering roles in aviation technology — based in Cairo, available globally. Direct lines below, or send a message and I'll reply within 24 hours."
+          intro="Open to backend, AI, and aviation software engineering opportunities. Based in Cairo, available globally. Reach out directly or send a message, and I'll reply within 24 hours."
         />
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(280px,380px)_1fr]">
