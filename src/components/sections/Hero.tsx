@@ -50,7 +50,7 @@ export default function Hero() {
           {roleBase} — <RotatingText items={profile.rotatingSpecialties} />
         </p>
 
-        <p className="rise-in rise-in-3 mx-auto mt-6 max-w-2xl text-justify leading-relaxed text-muted">
+        <p className="rise-in rise-in-5 mx-auto mt-6 max-w-3xl text-justify leading-relaxed text-muted">
           {profile.tagline}
         </p>
 
