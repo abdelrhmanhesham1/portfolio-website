@@ -14,7 +14,7 @@ and an aviation pre-flight risk assessment desktop app.
 - **Motion** (LazyMotion) — fail-open scroll animations with full
   `prefers-reduced-motion` support
 - **react-hook-form + zod** contact form via Web3Forms
-- Deployed on **Netlify** (host-agnostic code — no platform APIs)
+- Deployed on **Vercel** (host-agnostic code — no platform-specific APIs used)
 
 ## Architecture notes
 
